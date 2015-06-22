@@ -18,7 +18,7 @@ Configure the image
 You can configure the SSH root password and authorized key with the following environment variables.
 
  - SSH_PASSWORD : The root password.
- - SSH_AUTHORIZED_KEYS : A key that will be added to the authorized key file of the root user.
+ - SSH_AUTHORIZED_KEY : A key that will be added to the authorized key file of the root user.
 
 
 Run the image

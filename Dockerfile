@@ -5,12 +5,11 @@ MAINTAINER Christophe Burki, christophe@burkionline.net
 RUN apt-get update && apt-get install -y \
     emacs24-nox \
     locales \
-    openssh-server
+    openssh-server \
+    pwgen
 
 # Configure locales and timezone
-RUN locale-gen en_US.UTF-8
-RUN locale-gen en_GB.UTF-8
-RUN locale-gen fr_CH.UTF-8
+RUN locale-gen en_US.UTF-8 en_GB.UTF-8 fr_CH.UTF-8
 RUN cp /usr/share/zoneinfo/Europe/Zurich /etc/localtime
 RUN echo "Europe/Zurich" > /etc/timezone
 
@@ -23,6 +22,10 @@ RUN mkdir /root/.ssh
 # s6 install and config
 COPY bin/* /usr/bin/
 COPY configs/etc/s6 /etc/s6/
+
+# install setup scripts
+COPY scripts/* /opt/
+RUN chmod a+x /opt/setupusers.sh
 
 EXPOSE 22
 

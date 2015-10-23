@@ -15,12 +15,17 @@ To create this image, execute the following command in the docker-sshd folder.
 Configure the image
 -------------------
 
-You can configure the SSH root password and authorized key with the following environment variables.
+The following environment variables could be used to configure the users.
 
- - SSH_PASSWORD : The root password.
- - SSH_AUTHORIZED_KEY : Your public key that will be added to the authorized key file of the root user.
-
-You will not be able to log into this container if you do not provide at least one of these variables. Be careful to set a strong password for the root access because it has full access to the volumes you specify to mount when running the container.
+ - SSH_PASSWORD : The password for root and given user. No password is set when not specified.
+ - SSH_AUTHORIZED_KEY : Your public key that will be added to the authorized key file of the root and given user.
+ - SSH_USER : An optional user that will be created.
+ 
+You will not be able to log into this container if you do not provide at
+least SSH_PASSWORD or SSH_AUTHORIZED_KEY. Be careful to set a strong password
+for the users because they have full access to the volumes you specify to mount
+when running the container. When he user SSH_USER is created, the SSH_PASSWORD
+and SSH_AUTHORIZED_KEY are also set for this user.
 
 
 Run the image

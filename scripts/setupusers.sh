@@ -15,6 +15,8 @@ if [ -n "${SSH_AUTHORIZED_KEY}" ]; then
     echo "${SSH_AUTHORIZED_KEY}" > /root/.ssh/authorized_keys
 fi
 
+echo 'PS1="\[\e[00;36m\][\$?]\[\e[0m\]\[\e[00;30m\] \[\e[0m\]\[\e[00;32m\]\u@\h\[\e[0m\]\[\e[00;30m\] \[\e[0m\]\[\e[00;34m\][\W]\[\e[0m\]\[\e[00;30m\] \\$ \[\e[0m\]"' >> /root/.bashrc
+
 if [ -n "${SSH_USER}" ]; then
 
     CREATED=/home/${SSH_USER}/.user-created
@@ -48,5 +50,7 @@ if [ -n "${SSH_USER}" ]; then
     chown ${SSH_USER}:${SSH_USER} /home/${SSH_USER}/.profile
     chown -R ${SSH_USER}:${SSH_USER} /home/${SSH_USER}/.ssh
 fi
+
+echo "done" >> ${USER_STATUS_FILE}
 
 exit 0

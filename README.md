@@ -1,3 +1,11 @@
+WARNING
+-------
+
+The base image has been changed from debian:jessie to ubuntu:latest. I have made this changes
+due to the old packages version in the debian jessie. If you still want to use the debian one, use the tag
+*debian-latest* or *debian-1.2.1*.
+
+
 Summary
 -------
 

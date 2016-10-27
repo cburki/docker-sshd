@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM ubuntu:latest
 MAINTAINER Christophe Burki, christophe.burki@gmail.com
 
 # Install system requirements

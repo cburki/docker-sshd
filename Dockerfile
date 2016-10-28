@@ -20,7 +20,7 @@ RUN locale-gen en_US.UTF-8 en_GB.UTF-8 fr_CH.UTF-8 && \
 RUN mkdir /var/run/sshd && \
     sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
     sed -ri 's/#UsePAM no/UsePAM no/g' /etc/ssh/sshd_config && \
-    sed -ri 's/PermitRootLogin without-password/PermitRootLogin yes/g' /etc/ssh/sshd_config && \
+    sed -ri 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config && \
     mkdir /root/.ssh
 
 # s6 install and config

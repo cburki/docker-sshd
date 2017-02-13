@@ -1,15 +1,17 @@
 WARNING
 -------
 
-The base image has been changed from debian:jessie to ubuntu:latest. I have made this changes
-due to the old packages version in the debian jessie. If you still want to use the debian one, use the tag
-*debian-latest* or *debian-1.2.1*.
+The base image has been changed from debian:jessie to ubuntu:latest. I have 
+made this changes due to the old packages version in the debian jessie. If 
+you still want to use the debian one, use the tag *debian-latest* or *debian-1.2.1*.
 
 
 Summary
 -------
 
-SSH server image with emacs editor. This image allow to download/upload files from/to volumes of a data volume containers. It allow to browse the mounted volumes and edit the files inside theses volumes.
+SSH server image with emacs editor. This image allow to download/upload files 
+from/to volumes of a data containers. It allow to browse the mounted 
+volumes and edit the files inside theses volumes.
 
 
 Build the image
@@ -17,7 +19,7 @@ Build the image
 
 To create this image, execute the following command in the docker-sshd folder.
 
-    docker build -t cburki/sshd .
+    docker image build -t cburki/sshd .
 
 
 Configure the image
@@ -39,15 +41,14 @@ and SSH_AUTHORIZED_KEY are also set for this user.
 Run the image
 -------------
 
-When you run the image, you will bind the SSH port 22. Add the containers from which to mount the volumes you would like to access.
+When you run the image, you will bind the SSH port 22. You can add the volume
+with the shared data you would like to access.
 
-    docker run \
+    docker container run \
         --name sshd \
-        --volumes-from <container_id> \
+        -v <volume_name>:<countainer_mount> \
         -d \
         -e SSH_PASSWORD=<your_password> \
         -e SSH_AUTHORIZED_KEY="<your_key>" \
         -p 2222:22 \
         cburki/sshd:latest
-
-You can use multiple --volumes-from parameters to bring together multiple data volumes from multiple containers.

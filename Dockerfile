@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:xenial
 MAINTAINER Christophe Burki, christophe.burki@gmail.com
 
 # Install system requirements

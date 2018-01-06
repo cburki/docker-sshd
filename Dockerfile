@@ -1,13 +1,14 @@
-FROM ubuntu:xenial
+FROM ubuntu:artful
 MAINTAINER Christophe Burki, christophe.burki@gmail.com
 
 # Install system requirements
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    emacs24-nox \
+    emacs25-nox \
     locales \
     openssh-server \
     pwgen \
     tmux \
+    tzdata \
     xterm && \
     apt-get autoremove -y && \
     apt-get clean

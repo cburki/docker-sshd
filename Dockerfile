@@ -1,5 +1,5 @@
-FROM ubuntu:artful
-MAINTAINER Christophe Burki, christophe.burki@gmail.com
+FROM ubuntu:bionic
+LABEL maintainer="Christophe Burki, christophe.burki@protonmail.ch"
 
 # Install system requirements
 RUN apt-get update && apt-get install -y --no-install-recommends \
